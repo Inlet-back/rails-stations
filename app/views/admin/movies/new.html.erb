@@ -1,4 +1,4 @@
-<%= form_with model: @movies do |f| %>
+<%= form_with model: @movie, url: admin_movies_path do |f| %>
     <div>
         <%= f.label :name %>
         <%= f.text_field :name %>

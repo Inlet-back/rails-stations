@@ -3,6 +3,9 @@ class Admin::MoviesController < ApplicationController
     @movies = Movie.all
   end
 
+  def show
+    @movie = Movie.find(params[:id])
+  end
   def new
     @movie = Movie.new
   end
@@ -13,6 +16,18 @@ class Admin::MoviesController < ApplicationController
     else
       flash[:error] = @movie.errors
       render :new
+    end
+  end
+  def edit
+    @movie = Movie.find(params[:id])
+  end
+  def update
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
+      redirect_to admin_movies_path
+    else
+      flash[:error] = @movie.errors
+      render :edit
     end
   end
 

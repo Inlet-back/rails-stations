@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :movies
   namespace :admin do
-    resources :movies
+    resources :movies, only: [:index,:new, :create, :edit, :update, :show, :destory]
   end
 end

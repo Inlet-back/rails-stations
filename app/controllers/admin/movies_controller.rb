@@ -3,9 +3,6 @@ class Admin::MoviesController < ApplicationController
     @movies = Movie.all
   end
 
-  def show
-    @movie = Movie.find(params[:id])
-  end
   def new
     @movie = Movie.new
   end
@@ -29,6 +26,11 @@ class Admin::MoviesController < ApplicationController
       flash[:error] = @movie.errors
       render :edit
     end
+  end
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    redirect_to admin_movies_path, notice: 'Movie was successfully deleted.'
   end
 
   private

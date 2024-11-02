@@ -26,4 +26,4 @@
     
 <% end %>
   
-<%= link_to "削除", admin_movie_path(@movie), method: :delete ,data: { confirm: "本当に削除しますか？" } %>
+<%= link_to "削除", admin_movie_path(@movie), data: { turbo_method: :delete, confirm: "本当に削除しますか？" } %>
